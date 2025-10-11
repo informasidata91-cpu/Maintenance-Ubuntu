@@ -122,3 +122,12 @@ Tujuan: mempermudah perawatan sistem Ubuntu secara otomatis, aman, dan efisien.
 - 💻 Repo GitHub: [https://github.com/Data-Informasi/ubuntu-maintenance](https://github.com/Data-Informasi/ubuntu-maintenance)
 - 📄 Lisensi: [MIT License](LICENSE)
 - 🐧 Sistem yang Didukung: Ubuntu 20.04, 22.04, dan versi terbaru
+
+---
+
+## Support Us / Dukung Kami
+
+If you like this project, consider supporting us via GitHub Sponsors:  
+Jika kamu menyukai proyek ini, pertimbangkan untuk mendukung kami melalui GitHub Sponsors:
+
+[![Sponsor](https://img.shields.io/badge/Sponsor-❤️-pink?style=flat&logo=GitHub)](https://github.com/sponsors/DataInformasi)  
