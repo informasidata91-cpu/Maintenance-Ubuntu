@@ -37,7 +37,9 @@ Skrip shell otomatis untuk melakukan **perawatan sistem Ubuntu secara menyeluruh
 
 ## 🖥️ Cara Menggunakan
 
-1. Unduh atau salin file `maintenance-ubuntu.sh` ke sistemmu  
+1. Unduh atau salin file `maintenance-ubuntu.sh` ke sistemmu
+   ```bash
+   sudo wget https://raw.githubusercontent.com/Data-Informasi/ubuntu-maintenance/main/maintenance-ubuntu.sh -O /usr/local/bin/maintenance-ubuntu.sh
 2. Jadikan file dapat dieksekusi:
    ```bash
    chmod +x maintenance-ubuntu.sh
