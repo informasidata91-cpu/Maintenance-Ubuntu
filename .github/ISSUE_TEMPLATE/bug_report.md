@@ -35,13 +35,13 @@ Jika berlaku, tambahkan tangkapan layar untuk membantu menjelaskan masalah Anda.
 ## Lingkungan Penggunaan / Usage Environment  
 
 ### Desktop (Harap lengkapi informasi berikut):  
-**Desktop (please complete the following information):**  
+### Desktop (please complete the following information):  
  - Sistem Operasi / OS: [e.g. Windows, macOS, Linux]  
  - Peramban / Browser: [e.g. Chrome, Firefox, Safari]  
  - Versi / Version: [e.g. 110.0]  
 
 ### Ponsel Cerdas (Harap lengkapi informasi berikut):  
-**Smartphone (please complete the following information):**  
+### Smartphone (please complete the following information):  
  - Perangkat / Device: [e.g. iPhone 14, Samsung S23]  
  - Sistem Operasi / OS: [e.g. iOS 16, Android 13]  
  - Peramban / Browser: [e.g. Stock Browser, Chrome Mobile]  
