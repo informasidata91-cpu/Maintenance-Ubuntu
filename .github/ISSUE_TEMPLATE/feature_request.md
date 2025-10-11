@@ -1,28 +1,58 @@
----
-name/nama: Feature request
-about/tentang: Suggest an idea for this project
-title/judul: ''
-labels/label: ''
-assignees/penerima tugas: ''
+# Laporan Bug / Bug Report
+
+Silakan isi formulir di bawah untuk melaporkan bug. / Please fill out the form below to report a bug.
 
 ---
 
----
+## Deskripsi Bug / Bug Description
 
-## Apakah permintaan fitur Anda terkait dengan suatu masalah? Jelaskan. / Is your feature request related to a problem? Please describe.
-**Deskripsi singkat dan jelas mengenai apa masalahnya.** Contoh: Saya selalu frustrasi ketika [...] / **A clear and concise description of what the problem is.** Ex. I'm always frustrated when [...]
+**Judul Singkat:** (Contoh: Aplikasi crash saat membuka dashboard) / **Short Title:** (Example: App crashes when opening the dashboard)
 
----
+**Deskripsi Lengkap:**
+*🇮🇩 Jelaskan bug yang terjadi secara singkat dan jelas.*
+*🇬🇧 Describe the issue clearly and concisely.*
 
-## Jelaskan solusi yang Anda inginkan / Describe the solution you'd like
-**Deskripsi singkat dan jelas mengenai apa yang Anda inginkan terjadi.** / **A clear and concise description of what you want to happen.**
-
----
-
-## Jelaskan alternatif yang telah Anda pertimbangkan / Describe alternatives you've considered
-**Deskripsi singkat dan jelas mengenai solusi alternatif atau fitur lain yang telah Anda pertimbangkan.** / **A clear and concise description of any alternative solutions or features you've considered.**
+(Tulis deskripsi Anda di sini)
 
 ---
 
-## Konteks tambahan / Additional context
-**Tambahkan konteks atau tangkapan layar lain tentang permintaan fitur ini di sini.** / **Add any other context or screenshots about the feature request here.**
+## Langkah Reproduksi / Steps to Reproduce
+
+**🇮🇩 Jelaskan langkah-langkah minimal untuk memunculkan bug.**
+**🇬🇧 List the minimal steps to reproduce the issue.**
+
+1. Buka ... / Go to ...
+2. Klik ... / Click ...
+3. Terjadi error ... / Error occurs ...
+
+---
+
+## Perilaku Diharapkan / Expected Behavior
+
+**🇮🇩 Apa yang seharusnya terjadi, bukan bug yang muncul.**
+**🇬🇧 What should happen instead of the bug.**
+
+(Tulis perilaku yang diharapkan di sini)
+
+---
+
+## Lingkungan Sistem / System Environment
+
+**🇮🇩 Informasi sistem, versi OS, atau versi komponen terkait tempat bug terjadi.**
+**🇬🇧 Information about the system, OS version, or relevant component versions where the bug occurred.**
+
+* **Sistem Operasi / OS:** [Contoh: Ubuntu 24.04 LTS]
+* **Versi Komponen:** [Contoh: Python 3.12, Chrome 120]
+
+---
+
+## Informasi Tambahan / Additional Information
+
+**🇮🇩 Tambahkan tangkapan layar, log, pesan error lengkap, atau konteks lain di sini.**
+**🇬🇧 Add screenshots, logs, full error messages, or any other context here.**
+
+(Tulis informasi tambahan di sini)
+
+---
+
+> **Catatan:** Anda dapat mengisi labels: bug dan assignees: di panel sisi kanan GitHub setelah membuat isu ini. / You can set the labels: bug and assignees: in the GitHub sidebar panel after creating this issue.
