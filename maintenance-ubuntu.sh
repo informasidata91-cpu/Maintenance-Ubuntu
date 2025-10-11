@@ -1,90 +1,120 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # ==========================================================
-#  Skrip Perawatan Sistem Ubuntu Otomatis
-#  Versi: 1.1 
-#  Deskripsi:
-#  Memperbarui sistem, memperbaiki paket rusak, membersihkan cache,
-#  menjadwalkan fsck, menyiapkan tes RAM, dan melakukan restart otomatis.
-#  Jalankan sebagai root.
+#  Skrip Pemeliharaan Sistem Ubuntu Otomatis
+#  Versi: 1.0
+#  Dibuat oleh: Data Informasi (2025)
 # ==========================================================
 
 set -euo pipefail
-
-# --- Inisialisasi log ---
 LOGFILE="/var/log/maintenance_ubuntu.log"
 exec > >(tee -a "$LOGFILE") 2>&1
 START=$(date +%s)
+
 echo "=== MEMULAI PROSES PERAWATAN SISTEM UBUNTU ($(date)) ==="
 
-# --- Fungsi utilitas ---
-info() { echo "[INFO] $1"; }
-warn() { echo "[PERINGATAN] $1"; }
+# ----------------------------------------------------------
+# 1. Memeriksa koneksi internet
+# ----------------------------------------------------------
+echo "[1/13] Memeriksa koneksi internet..."
+if ping -c 1 8.8.8.8 &>/dev/null; then
+    echo "Koneksi internet OK."
+else
+    echo "Tidak ada koneksi internet. Beberapa langkah mungkin gagal."
+fi
 
-# --- Cek koneksi internet ---
-cek_internet() {
-    info "Memeriksa koneksi internet..."
-    if ping -c1 8.8.8.8 &>/dev/null; then
-        info "Koneksi internet aktif."
-        NO_NET=0
-    else
-        warn "Tidak ada koneksi internet. Langkah update sistem akan dilewati."
-        NO_NET=1
-    fi
-}
+# ----------------------------------------------------------
+# 2. Memperbarui daftar paket
+# ----------------------------------------------------------
+echo "[2/13] Memperbarui daftar paket (apt update)..."
+apt-get update -y -qq
 
-# --- Perbarui dan perbaiki sistem ---
-update_sistem() {
-    if [[ $NO_NET -eq 1 ]]; then return; fi
-    info "Memperbarui dan memperbaiki sistem..."
-    apt-get update -y
-    apt-get dist-upgrade -y
-    apt-get autoremove --purge -y
-    apt-get autoclean -y
-    apt-get clean -y
-    info "Update dan pembersihan sistem selesai."
-}
+# ----------------------------------------------------------
+# 3. Melakukan peningkatan paket sistem
+# ----------------------------------------------------------
+echo "[3/13] Meningkatkan paket sistem (apt upgrade)..."
+apt-get upgrade -y -qq
+apt-get dist-upgrade -y -qq
 
-# --- Perbaiki paket rusak ---
-perbaiki_paket() {
-    info "Memeriksa dan memperbaiki paket rusak..."
-    dpkg --configure -a || true
-    apt-get install -f -y || true
-}
+# ----------------------------------------------------------
+# 4. Menghapus paket dan dependensi yang tidak dibutuhkan
+# ----------------------------------------------------------
+echo "[4/13] Menghapus paket dan dependensi yang tidak dibutuhkan..."
+apt-get autoremove -y -qq
+apt-get autoclean -y -qq
 
-# --- Bersihkan file sementara dan log ---
-bersihkan_file() {
-    info "Membersihkan file sementara, cache, dan log lama..."
-    find /tmp /var/tmp -type f -mtime +3 -delete 2>/dev/null || true
-    journalctl --vacuum-time=10d || true
-    rm -rf /var/cache/apt/archives/*.deb || true
-    rm -rf /var/lib/apt/lists/* || true
-    info "Pembersihan file sementara selesai."
-}
+# ----------------------------------------------------------
+# 5. Membersihkan cache APT
+# ----------------------------------------------------------
+echo "[5/13] Membersihkan cache APT..."
+rm -rf /var/lib/apt/lists/*
+apt-get clean -y -qq
 
-# --- Periksa sistem file (fsck) ---
-periksa_disk() {
-    info "Menjadwalkan pemeriksaan disk (fsck) pada reboot berikutnya..."
-    touch /forcefsck
-}
+# ----------------------------------------------------------
+# 6. Membersihkan cache Snap
+# ----------------------------------------------------------
+echo "[6/13] Membersihkan cache Snap..."
+if command -v snap &>/dev/null; then
+    snap list --all | awk '/disabled/{print $1, $2}' | while read snapname revision; do
+        snap remove "$snapname" --revision="$revision" 2>/dev/null || true
+    done
+    rm -rf /var/lib/snapd/cache/* || true
+else
+    echo "Snap tidak terinstal, melewati langkah ini."
+fi
 
-# --- Tes RAM (opsional) ---
-tes_ram() {
-    info "Memastikan utilitas memtester terpasang..."
-    apt-get install -y memtester >/dev/null 2>&1 || true
-    info "Tes RAM dapat dijalankan manual: sudo memtester 100M 1"
-}
+# ----------------------------------------------------------
+# 7. Membersihkan log sistem lama
+# ----------------------------------------------------------
+echo "[7/13] Membersihkan log sistem lama..."
+journalctl --vacuum-time=7d
+rm -rf /var/log/*.gz /var/log/*.[0-9] || true
 
-# --- Ringkasan hasil ---
-ringkasan() {
-    END=$(date +%s)
-    DURASI=$(( (END - START) / 60 ))
-    echo
-    info "=== PROSES PERAWATAN SELESAI ==="
-    info "Durasi total: ${DURASI} menit"
-    info "Log tersimpan di: $LOGFILE"
-    info "Sistem akan restart otomatis dalam 30 detik..."
-    echo "Selesai pada: $(date)"
-    sleep 5
-    shutdown -r +0.5 "Perawatan sistem selesai. Komputer akan restart otomatis dalam 30 detik."
-}
+# ----------------------------------------------------------
+# 8. Memeriksa dan memperbaiki sistem file
+# ----------------------------------------------------------
+echo "[8/13] Memeriksa integritas sistem file..."
+fsck -Af -y || echo "fsck akan berjalan otomatis pada reboot bila perlu."
 
+# ----------------------------------------------------------
+# 9. Memeriksa status dan memperbaiki paket rusak
+# ----------------------------------------------------------
+echo "[9/13] Memeriksa dan memperbaiki paket rusak..."
+dpkg --configure -a
+apt-get install -f -y -qq
+
+# ----------------------------------------------------------
+# 10. Memeriksa layanan yang gagal
+# ----------------------------------------------------------
+echo "[10/13] Memeriksa layanan sistem yang gagal..."
+systemctl --failed || true
+
+# ----------------------------------------------------------
+# 11. Membersihkan direktori sementara
+# ----------------------------------------------------------
+echo "[11/13] Membersihkan file sementara..."
+rm -rf /tmp/* /var/tmp/* || true
+
+# ----------------------------------------------------------
+# 12. Mengoptimalkan swap dan memori cache
+# ----------------------------------------------------------
+echo "[12/13] Mengosongkan cache memori..."
+sync; echo 3 > /proc/sys/vm/drop_caches || true
+swapoff -a && swapon -a || true
+echo "Cache memori dibersihkan."
+
+# ----------------------------------------------------------
+# 13. Menjadwalkan reboot otomatis
+# ----------------------------------------------------------
+echo "[13/13] Menjadwalkan restart sistem..."
+echo "Sistem akan restart otomatis dalam 1 menit."
+sleep 5
+shutdown -r +1 "Maintenance Ubuntu selesai. Sistem akan restart dalam 1 menit."
+
+# ----------------------------------------------------------
+# Ringkasan
+# ----------------------------------------------------------
+END=$(date +%s)
+DURATION=$((END - START))
+echo "=== PROSES PERAWATAN SELESAI dalam ${DURATION} detik ==="
+echo "Log disimpan di: $LOGFILE"
+echo "=========================================================="
