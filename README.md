@@ -42,11 +42,11 @@ Skrip shell otomatis untuk melakukan **perawatan sistem Ubuntu secara menyeluruh
    sudo wget https://raw.githubusercontent.com/informasidata91-cpu/Maintenance-Ubuntu/main/maintenance-ubuntu.sh -O /usr/local/bin/maintenance-ubuntu.sh
 2. Jadikan file dapat dieksekusi:
    ```bash
-   chmod +x maintenance-ubuntu.sh
+   sudo chmod +x /usr/local/bin/maintenance-ubuntu.sh
    ```
 3. Jalankan sebagai **root**:
    ```bash
-   sudo ./maintenance-ubuntu.sh
+   sudo /usr/local/bin/maintenance-ubuntu.sh
    ```
 4. Biarkan skrip berjalan hingga selesai — semua langkah berjalan otomatis  
 
