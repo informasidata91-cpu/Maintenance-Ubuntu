@@ -1,11 +1,11 @@
 # Contribution Guidelines
 
 Thank you for your interest in contributing to **Maintenance-Ubuntu** 🎉  
-Your contributions help keep this project growing, stable, and useful for Ubuntu users worldwide.
+Your contributions help keep this project growing, stable, and useful for Ubuntu users worldwide.  
 
 ---
 
-## 💡 How to Contribute
+## 💡 How to Contribute  
 
 There are several ways you can help improve this project:
 
@@ -39,7 +39,7 @@ There are several ways you can help improve this project:
 
 ---
 
-## 🧰 Coding Standards
+## 🧰 Coding Standards  
 
 - Use **safe and clean Bash scripting** practices:
   - Always include `set -euo pipefail` at the top.
@@ -51,7 +51,7 @@ There are several ways you can help improve this project:
 
 ---
 
-## ⚙️ Development Setup
+## ⚙️ Development Setup  
 
 Steps to set up your local development environment:
 
@@ -75,7 +75,7 @@ before submitting your Pull Request.
 
 ---
 
-## 🧪 Testing
+## 🧪 Testing  
 
 Before submitting your changes, ensure all main functions work correctly:
 ```bash
@@ -85,22 +85,21 @@ Make sure there are no errors, prompts, or system conflicts.
 
 ---
 
-## 🗣️ Code of Conduct
+## 🗣️ Code of Conduct  
 
 All contributors are expected to follow the behavior guidelines defined in:
 [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 
 ---
 
-## 📬 Questions or Support
+## 📬 Questions or Support  
 
 If you have questions, suggestions, or need help, please contact the project maintainer at:
 
-📧 **informasidata91@gmail.com**
+📧 **informasidata91@gmail.com**  
 
 ---
 
 ## ❤️ Thank You
 
-Your contributions matter — big or small.  
-Every line of code, bug report, or suggestion helps make this project better for everyone.
+Your contributions matter — big or small. Every line of code, bug report, or suggestion helps make this project better for everyone.
