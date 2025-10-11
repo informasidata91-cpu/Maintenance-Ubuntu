@@ -130,4 +130,4 @@ Tujuan: mempermudah perawatan sistem Ubuntu secara otomatis, aman, dan efisien.
 If you like this project, consider supporting us via GitHub Sponsors:  
 Jika kamu menyukai proyek ini, pertimbangkan untuk mendukung kami melalui GitHub Sponsors:
 
-[![Sponsor](https://img.shields.io/badge/Sponsor-❤️-pink?style=flat&logo=GitHub)](https://github.com/sponsors/DataInformasi)  
+[![Sponsor](https://img.shields.io/badge/Sponsor-❤️-pink?style=flat&logo=GitHub)](https://github.com/informasidata91-cpu)  
