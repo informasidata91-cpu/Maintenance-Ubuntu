@@ -1,2 +1,104 @@
-# Maintenance-Ubuntu
-Skrip perawatan otomatis untuk Ubuntu yang memperbarui sistem, memperbaiki paket rusak, membersihkan cache dan file sementara, mengecilkan log, menjadwalkan pemeriksaan disk (fsck), serta menyiapkan tes RAM. Dijalankan sebagai root untuk menjaga performa dan kestabilan sistem.
+# 🧰 Ubuntu Maintenance Script
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/Status-Stable-success.svg)](https://github.com/Data-Informasi/ubuntu-maintenance)
+[![Made with Bash](https://img.shields.io/badge/Made%20with-Bash-1f425f.svg)](https://www.gnu.org/software/bash/)
+[![Ubuntu](https://img.shields.io/badge/Tested%20on-Ubuntu%2020.04%2B-orange.svg)](https://ubuntu.com/)
+
+Skrip shell otomatis untuk melakukan **perawatan sistem Ubuntu secara menyeluruh**.  Dijalankan sebagai **root**, skrip ini membantu menjaga performa, stabilitas, dan kesehatan sistem tanpa perlu interaksi manual.
+
+---
+
+## 🚀 Fitur Utama
+
+1. 🔧 **Pembaruan Sistem Otomatis**  
+   - Menjalankan `apt-get update`, `upgrade`, dan `dist-upgrade`  
+   - Memperbaiki paket rusak dan dependensi yang hilang  
+
+2. 🧹 **Pembersihan Sistem Mendalam**  
+   - Menghapus cache APT, file sementara, log lama, dan paket yatim  
+   - Menghapus isi `/tmp`, `journalctl` lebih dari 10 hari, dan file sampah lain  
+
+3. 💾 **Optimalisasi Ruang Disk**  
+   - Membersihkan direktori cache dan log besar  
+   - Menjaga ruang penyimpanan tetap efisien  
+
+4. 🧠 **Tes Memori Otomatis (RAM)**  
+   - Memastikan `memtester` terpasang  
+   - Menjalankan uji memori ringan setelah perawatan  
+
+5. 🧱 **Pemeriksaan Disk (fsck)**  
+   - Menandai pemeriksaan disk otomatis pada boot berikutnya (`/forcefsck`)  
+
+6. 🔁 **Restart Otomatis**  
+   - Sistem akan restart otomatis setelah seluruh proses selesai  
+
+---
+
+## 🖥️ Cara Menggunakan
+
+1. Unduh atau salin file `maintenance-ubuntu.sh` ke sistemmu  
+2. Jadikan file dapat dieksekusi:
+   ```bash
+   chmod +x maintenance-ubuntu.sh
+   ```
+3. Jalankan sebagai **root**:
+   ```bash
+   sudo ./maintenance-ubuntu.sh
+   ```
+4. Biarkan skrip berjalan hingga selesai — semua langkah berjalan otomatis  
+
+---
+
+## 🕒 Menjadwalkan Otomatis (Opsional)
+
+Untuk menjalankan skrip secara rutin (misalnya setiap Minggu pukul 03:00 pagi), tambahkan ke **cron**:
+
+```bash
+sudo crontab -e
+```
+
+Lalu tambahkan baris berikut:
+```bash
+0 3 * * 0 /path/to/maintenance-ubuntu.sh >> /var/log/maintenance.log 2>&1
+```
+
+---
+
+## 📂 Struktur Proyek
+
+```
+.
+├── maintenance-ubuntu.sh   # Skrip utama perawatan Ubuntu
+├── LICENSE                 # Lisensi MIT resmi
+└── README.md               # Dokumentasi proyek
+```
+
+---
+
+## 🧾 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE) © 2025 **Data Informasi**.  
+Anda bebas menggunakan, menyalin, memodifikasi, dan mendistribusikan proyek ini untuk tujuan apa pun, selama menyertakan pemberitahuan hak cipta dan lisensi ini.
+
+---
+
+## 🤝 Kontribusi
+
+Kontribusi terbuka untuk siapa pun!  
+Silakan buat **pull request** untuk menambahkan fitur baru atau memperbaiki bug.
+
+---
+
+## 🧩 Tentang
+
+Dikembangkan oleh **Data Informasi**  
+Tujuan: mempermudah perawatan sistem Ubuntu secara otomatis, aman, dan efisien.
+
+---
+
+## 🌐 Tautan Penting
+
+- 💻 Repo GitHub: [https://github.com/Data-Informasi/ubuntu-maintenance](https://github.com/Data-Informasi/ubuntu-maintenance)
+- 📄 Lisensi: [MIT License](LICENSE)
+- 🐧 Sistem yang Didukung: Ubuntu 20.04, 22.04, dan versi terbaru
