@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ==========================================================
 #  Skrip Perawatan Sistem Ubuntu Otomatis
-#  Versi: 2.1 
+#  Versi: 1.1 
 #  Deskripsi:
 #  Memperbarui sistem, memperbaiki paket rusak, membersihkan cache,
 #  menjadwalkan fsck, menyiapkan tes RAM, dan melakukan restart otomatis.
