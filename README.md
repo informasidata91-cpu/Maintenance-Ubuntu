@@ -64,6 +64,24 @@ Lalu tambahkan baris berikut:
 ```bash
 0 3 * * 0 /path/to/maintenance-ubuntu.sh >> /var/log/maintenance.log 2>&1
 ```
+### 🧩 Penjelasan Baris Demi Baris  
+
+| Bagian                           | Arti                           | Keterangan                                                                                                                            |
+| -------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `0`                              | **Menit**                      | Skrip dijalankan pada menit ke-0 (tepat di awal jam).                                                                                 |
+| `3`                              | **Jam**                        | Skrip dijalankan pukul **03:00 pagi**.                                                                                                |
+| `*`                              | **Tanggal (hari dalam bulan)** | Simbol `*` berarti **setiap tanggal**.                                                                                                |
+| `*`                              | **Bulan**                      | Simbol `*` berarti **setiap bulan**.                                                                                                  |
+| `0`                              | **Hari dalam minggu**          | Nilai `0` berarti **Minggu**. (1=Senin, 2=Selasa, dst).                                                                               |
+| `/path/to/maintenance-ubuntu.sh` | **Perintah utama**             | Lokasi lengkap skrip maintenance yang akan dijalankan. Ganti dengan path sebenarnya, misalnya `/usr/local/bin/maintenance-ubuntu.sh`. |
+| `>> /var/log/maintenance.log`    | **Output log**                 | Menyimpan hasil keluaran (stdout) dari skrip ke file log `/var/log/maintenance.log`. Jika file belum ada, akan dibuat otomatis.       |
+| `2>&1`                           | **Redirect error**             | Mengarahkan keluaran error (stderr) ke tempat yang sama dengan keluaran biasa (stdout), sehingga **semua pesan** masuk ke log.        |  
+
+### 🛠️ Contoh versi lengkap (setelah disesuaikan)
+```bash
+0 3 * * 0 /usr/local/bin/maintenance-ubuntu.sh >> /var/log/maintenance.log 2>&1
+```  
+Dengan ini, sistem kamu akan otomatis melakukan perawatan mingguan tanpa perlu menjalankan skrip manual.  
 
 ---
 
