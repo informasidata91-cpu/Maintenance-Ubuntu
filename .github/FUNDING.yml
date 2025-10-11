@@ -1,0 +1,15 @@
+# ==============================================
+# GitHub Sponsors Funding Configuration
+# Konfigurasi Sponsor GitHub
+# ==============================================
+
+# Add up to 4 GitHub Sponsors usernames below
+# Tambahkan hingga 4 username GitHub Sponsors di bawah
+github: 
+  - DataInformasi       # Example / Contoh
+  - another-user        # Example / Contoh
+
+# Notes / Catatan:
+# - GitHub akan otomatis menampilkan tombol "Sponsor" di repositori
+# - Username harus berupa akun GitHub yang sudah mengaktifkan GitHub Sponsors
+# - Maksimal 4 username
