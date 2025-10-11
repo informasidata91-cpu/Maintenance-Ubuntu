@@ -1,8 +1,7 @@
-**name: Laporan Bug / Bug report**  
-**about: Buat laporan untuk membantu kami meningkatkan kualitas / Create a report to help us improve**  
-**title: ''**  
-**labels: bug**  
-**assignees: ''**  
+|                | name         | about        | title | labels | assignees |
+|----------------|--------------|--------------|--------|---------|------------|
+| **Bahasa Indonesia** | Laporan<br>Bug | Buat laporan untuk membantu kami meningkatkan kualitas |  | `bug` |  |
+| **Bahasa Inggris** | Bug<br>report | Create a report to help us improve |  | `bug` |  |
 
 ---
 
