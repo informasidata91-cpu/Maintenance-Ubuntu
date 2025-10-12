@@ -85,6 +85,15 @@ Dengan ini, sistem kamu akan otomatis melakukan perawatan mingguan tanpa perlu m
 
 ---
 
+## Distribusi yang Kompatibel Langsung  
+Skrip `maintenance-ubuntu.sh` digunakan untuk melakukan pemeliharaan sistem pada Linux berbasis Ubuntu/Debian. Skrip ini dapat dijalankan tanpa modifikasi pada distribusi berikut:
+- Ubuntu (semua versi yang masih didukung)
+- Debian (misal Debian 10, 11, dst.)
+- Linux Mint (berbasis Ubuntu/Debian)
+- Pop!_OS (berbasis Ubuntu)
+- Elementary OS (berbasis Ubuntu)
+- Zorin OS (berbasis Ubuntu)
+
 ## 📂 Struktur Proyek
 
 ```
