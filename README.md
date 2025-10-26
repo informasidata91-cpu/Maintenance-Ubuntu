@@ -141,4 +141,4 @@ Tujuan: mempermudah perawatan sistem Ubuntu secara otomatis, aman, dan efisien.
 If you like this project, consider supporting us via GitHub Sponsors:  
 Jika kamu menyukai proyek ini, pertimbangkan untuk mendukung kami melalui GitHub Sponsors:
 
-[![Sponsor](https://img.shields.io/badge/Sponsor-❤️-pink?style=flat&logo=GitHub)](https://github.com/informasidata91-cpu)  
+[![Sponsor](https://img.shields.io/badge/Sponsor-❤️-pink?style=flat&logo=GitHub)](https://github.com/informasidata91-cpu)    [<img src="https://storage.ko-fi.com/cdn/brandasset/v2/support_me_on_kofi_beige.png?_gl=1*m6jphs*_gcl_au*ODg3NjIwMzQ4LjE3NjA3NDkyMDc.*_ga*MTI1Mzg2NzYzMS4xNzYwNzQ5MjA4*_ga_M13FZ7VQ2C*czE3NjE0Njc5NTAkbzQkZzEkdDE3NjE0Njg1NDgkajYwJGwwJGgw" alt="Support me on Ko‑fi" height="20">](https://ko-fi.com/datainformasi)  
